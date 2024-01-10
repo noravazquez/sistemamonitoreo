@@ -1,0 +1,66 @@
+body {
+  background-image: url('../images/cevide.png');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center center; 
+  background-color: #e5e1d5; 
+  height: 100vh;
+  margin: 0;
+}
+
+.login-dark {
+    height: 1000px;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .login-dark form {
+    max-width: 320px;
+    width: 90%;
+    background-color: #fefffe;
+    padding: 40px;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #333333;
+    text-align: center;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+  }
+  
+  .login-dark .illustration {
+    text-align: center;
+    padding: 20px 0 25px;
+  }
+  
+  .login-dark form .form-control {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #71777a;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    margin-bottom: 15px;
+  }
+  
+  .login-dark form .btn-primary {
+    background: #333333;
+    border: none;
+    border-radius: 4px;
+    padding: 11px;
+    box-shadow: none;
+    margin-top: 25px;
+    text-shadow: none;
+    outline: none;
+  }
+  
+  .login-dark form .btn-primary:hover, .login-dark form .btn-primary:active {
+    background: #464646;
+    outline: none;
+  }
+  
+  .login-dark form .btn-primary:active {
+    transform: translateY(1px);
+  }
