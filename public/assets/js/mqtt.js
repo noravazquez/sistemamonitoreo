@@ -19,22 +19,27 @@ $(document).ready(function () {
 
             $('.chart').hide();
             $('#electrospinningConsola').hide();
+            $('#pruebasHorno').hide();
 
-            if (id_topic === 2) {
+            if (id_topic === 1) {
                 $('#chartHumedad').show();
                 $('#btnExportData').show();
                 $('#btnExportData').attr('href', '/exportdata/' + id_topic);
-            }else if (id_topic === 3) {
+            }else if (id_topic === 2) {
                 $('#electrospinningConsola').show();
                 $('#btnExportData').show();
                 $('#btnExportData').attr('href', '/exportdata/' + id_topic);
                 //14:53:33 [!] Sistema detenido. Motivo: Paro general
-            }else if (id_topic === 4) {
+            }else if (id_topic === 3) {
                 $('#humedadElectrospinning').show();
                 $('#btnExportData').show();
                 $('#btnExportData').attr('href', '/exportdata/' + id_topic);
-            }else if (id_topic === 5) {
+            }else if (id_topic === 4) {
                 $('#temperaturaElectrospinning').show();
+                $('#btnExportData').show();
+                $('#btnExportData').attr('href', '/exportdata/' + id_topic);
+            }else if (id_topic === 5) {
+                $('#pruebasHorno').show();
                 $('#btnExportData').show();
                 $('#btnExportData').attr('href', '/exportdata/' + id_topic);
             }
@@ -95,7 +100,7 @@ function connectionMqtt(mqttClientId) {
         var message = JSON.parse(event.data).message;
 
 
-        if(id_topic === 2){
+        if(id_topic === 1){
             var pattern = /_H(\d+)_(\d+)_/;
             message = message.match(pattern);
             console.log(message);
@@ -124,10 +129,10 @@ function connectionMqtt(mqttClientId) {
             }
 
             chartHumedad.update();
-        }else if (id_topic === 3) {
+        }else if (id_topic === 2) {
             console.log(message);
             $('#electrospinningConsola').text(message);
-        }else if (id_topic === 4) {
+        }else if (id_topic === 3) {
             console.log(message)
             var humedadElectrospinning = parseFloat(message);
             var fechaFormateada = formatDate(new Date());
@@ -144,7 +149,7 @@ function connectionMqtt(mqttClientId) {
             }
 
             chartHumedadElectrospinning.update();
-        }else if (id_topic === 5) {
+        }else if (id_topic === 4) {
             var temperaturaElectrospinning = parseFloat(message);
             var fechaFormateada = formatDate(new Date());
 
@@ -160,6 +165,9 @@ function connectionMqtt(mqttClientId) {
             }
 
             chartTemperaturaElectrospinning.update();
+        }else if (id_topic === 5) {
+            console.log(message);
+            $('#pruebasHorno').text(message);
         }
 
         $.ajax({

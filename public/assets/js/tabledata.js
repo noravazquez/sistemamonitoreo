@@ -12,7 +12,7 @@ $(document).ready(function () {
             let title = null;
             let columnas = [];
 
-            if (topic_id === 2) {
+            if (topic_id === 1) {
                 const dataTopic = data.data_topic;
 
                 dataSet = dataTopic.map(function (item) {
@@ -31,7 +31,7 @@ $(document).ready(function () {
                     {title: "Valor Humedad"},
                     {title: "Fecha"}
                 ];
-            }else if (topic_id === 3) {
+            }else if (topic_id === 2) {
                 const dataTopic = data.data_topic;
 
                 dataSet = dataTopic.map(function (item) {
@@ -51,7 +51,7 @@ $(document).ready(function () {
                     {title: "Contenido consola"},
                     {title: "Fecha"}
                 ];
-            }else if (topic_id === 4) {
+            }else if (topic_id === 3) {
                 const dataTopic = data.data_topic;
 
                 dataSet = dataTopic.map(function (item) {
@@ -71,7 +71,7 @@ $(document).ready(function () {
                     {title: "Valor humedad"},
                     {title: "Fecha"}
                 ];
-            }else if (topic_id === 5) {
+            }else if (topic_id === 4) {
                 const dataTopic = data.data_topic;
 
                 dataSet = dataTopic.map(function (item) {

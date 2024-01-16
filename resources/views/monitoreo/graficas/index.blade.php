@@ -35,6 +35,7 @@
             <p id="electrospinningConsola" style="display: none;"></p>
             <canvas id="humedadElectrospinning" class="chart" style="display: none;"></canvas>
             <canvas id="temperaturaElectrospinning" class="chart" style="display: none;"></canvas>
+            <p id="pruebasHorno" style="display: none;"></p>
         </div>
     </div>
     <!-- /.card-body -->
