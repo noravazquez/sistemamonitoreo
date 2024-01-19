@@ -33,8 +33,8 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Nombre corto</th>
+                            <th>Nombre variable</th>
+                            <th>Proyecto</th>
                             <th>Conexión MQTT</th>
                             <th>Creación</th>
                             <th>Actualización</th>
@@ -86,8 +86,4 @@
             overflow-x: auto;
         }
     </style>
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop

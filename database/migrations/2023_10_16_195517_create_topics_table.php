@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 250);
-            $table->string('nombre_corto', 50);
+            $table->string('nombre_corto', 250);
             $table->unsignedBigInteger('configuration_id');
             $table->foreign('configuration_id')->references('id')->on('configurations')->onUpdate('cascade');
             $table->timestamps();

@@ -17,6 +17,7 @@
         }
     ?>
 </p>
+
 <div class="card">
     <div class="card-header">
         <div class="card-tools">
@@ -28,17 +29,16 @@
             </div>
         </div>
     </div>
-    <!-- /.card-header -->
+
     <div class="card-body">
         <div>
             <canvas id="chartHumedad" class="chart" style="display: none;"></canvas>
             <p id="electrospinningConsola" style="display: none;"></p>
             <canvas id="humedadElectrospinning" class="chart" style="display: none;"></canvas>
             <canvas id="temperaturaElectrospinning" class="chart" style="display: none;"></canvas>
-            <p id="pruebasHorno" style="display: none;"></p>
         </div>
     </div>
-    <!-- /.card-body -->
+
     <div class="card-footer">
         <div style="text-align: center">
             @can('exportdata')
@@ -46,7 +46,7 @@
             @endcan
         </div>
     </div>
-    <!-- /.card-footer -->
+
 </div>
 @stop
 

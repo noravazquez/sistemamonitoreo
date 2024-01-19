@@ -19,7 +19,6 @@ $(document).ready(function () {
 
             $('.chart').hide();
             $('#electrospinningConsola').hide();
-            $('#pruebasHorno').hide();
 
             if (id_topic === 1) {
                 $('#chartHumedad').show();
@@ -29,17 +28,12 @@ $(document).ready(function () {
                 $('#electrospinningConsola').show();
                 $('#btnExportData').show();
                 $('#btnExportData').attr('href', '/exportdata/' + id_topic);
-                //14:53:33 [!] Sistema detenido. Motivo: Paro general
             }else if (id_topic === 3) {
                 $('#humedadElectrospinning').show();
                 $('#btnExportData').show();
                 $('#btnExportData').attr('href', '/exportdata/' + id_topic);
             }else if (id_topic === 4) {
                 $('#temperaturaElectrospinning').show();
-                $('#btnExportData').show();
-                $('#btnExportData').attr('href', '/exportdata/' + id_topic);
-            }else if (id_topic === 5) {
-                $('#pruebasHorno').show();
                 $('#btnExportData').show();
                 $('#btnExportData').attr('href', '/exportdata/' + id_topic);
             }
@@ -50,7 +44,6 @@ $(document).ready(function () {
                 url: '/configurationMqtt/'+id_topic,
                 type: 'GET',
                 success: function (data) {
-                    console.log(data.result);
                     let mqttConfig = {
                         host: data.result.url,
                         port: data.result.puerto,
@@ -61,8 +54,6 @@ $(document).ready(function () {
 
                     id_configuration = data.result.id_configuration;
 
-                    console.log(mqttConfig);
-
                     $.ajax({
                         url: 'http://localhost:3000/subscriber',
                         type: 'POST',
@@ -71,7 +62,6 @@ $(document).ready(function () {
                         success: function (postData) {
                             mqttClientId = postData.mqttClientId;
                             connectionMqtt(mqttClientId);
-                            console.log(mqttClientId);
                         },
                         error: function (postError) {
                             console.log('Error', postError);
@@ -92,18 +82,17 @@ function connectionMqtt(mqttClientId) {
     socket = new WebSocket(wsUrl);
 
     socket.onopen = function (event) {
-        console.log('Conexion WebSocket abierta: ', event);
+        //console.log('Conexion WebSocket abierta: ', event);
     }
 
     socket.onmessage = function (event) {
-        console.log('Mensaje recibido: ', event.data);
+        //console.log('Mensaje recibido: ', event.data);
         var message = JSON.parse(event.data).message;
 
 
         if(id_topic === 1){
             var pattern = /_H(\d+)_(\d+)_/;
             message = message.match(pattern);
-            console.log(message);
 
             var idHumedad = message[1];
             var humedad = message[2];
@@ -130,10 +119,8 @@ function connectionMqtt(mqttClientId) {
 
             chartHumedad.update();
         }else if (id_topic === 2) {
-            console.log(message);
             $('#electrospinningConsola').text(message);
         }else if (id_topic === 3) {
-            console.log(message)
             var humedadElectrospinning = parseFloat(message);
             var fechaFormateada = formatDate(new Date());
 
@@ -165,9 +152,6 @@ function connectionMqtt(mqttClientId) {
             }
 
             chartTemperaturaElectrospinning.update();
-        }else if (id_topic === 5) {
-            console.log(message);
-            $('#pruebasHorno').text(message);
         }
 
         $.ajax({
@@ -179,7 +163,7 @@ function connectionMqtt(mqttClientId) {
                 'X-CSRF-TOKEN': csrf_token
             },
             success: function (data) {
-                console.log(data.result);
+                //console.log(data.result);
             },
             error: function (postError) {
                 console.log('Error', postError);
@@ -199,6 +183,6 @@ function formatDate(date) {
 function closeWebSocket() {
     if (socket && socket.readyState === WebSocket.OPEN) {
         socket.close();
-        socket = null; // Limpia la variable global
+        socket = null;
     }
 }

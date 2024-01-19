@@ -14,21 +14,11 @@ use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         return view('monitoreo.index');
@@ -51,6 +41,7 @@ class HomeController extends Controller
     public function getConfiguration($topic_id){
         $topic = Topic::with('configuration')->find($topic_id);
         $configuration = $topic->configuration;
+
         $mqttConfig = [
             "id_topic" => $topic->id,
             "topic_nombre" => $topic->nombre,
@@ -61,9 +52,10 @@ class HomeController extends Controller
             "usuario" => $configuration->usuario,
             "contrasena" => $configuration->contrasena
         ];
+
         $fileData = json_encode($mqttConfig);
         Storage::put('config/mqtt_config.json', $fileData);
-        //Artisan::queue('app:mqtt-listener');
+
         return response()->json([
             "result" => [
                 "id_topic" => $topic->id,
@@ -85,11 +77,13 @@ class HomeController extends Controller
         ->where('topics.id', $topic_id)
         ->select('users.*')
         ->get();
-        return view('monitoreo.topics.users', compact('users', 'topic_id'));
+        $topic = Topic::find($topic_id);
+        return view('monitoreo.topics.users', compact('users', 'topic_id', 'topic'));
     }
 
     public function addUsers($topic_id){
-        return view('monitoreo.topics.addUser', compact('topic_id'));
+        $topic = Topic::find($topic_id);
+        return view('monitoreo.topics.addUser', compact('topic_id', 'topic'));
     }
 
     public function saveUsers(Request $request){
@@ -166,5 +160,18 @@ class HomeController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error interno del servidor'], 500);
         }
+    }
+
+    public function getDataByDateRange($topic_id, $startDate, $endDate) {
+        $startDate = date('Y-m-d', strtotime($startDate));
+        $endDate = date('Y-m-d', strtotime($endDate));
+
+        $tableName = "data_topic_$topic_id";
+        $data = DB::table($tableName)
+            ->where('topic_id', $topic_id)
+            ->whereBetween('created_at', [$startDate . ' 00:00:00', $endDate . ' 23:59:59'])
+            ->get();
+
+        return response()->json(['data_topic' => $data]);
     }
 }

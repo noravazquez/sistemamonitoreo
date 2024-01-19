@@ -12,12 +12,21 @@
     echo 'var topic_id = ' . $topic_id . ';';
     echo '</script>';
 ?>
+
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Export data</h3>
-        <!-- /.card-tools -->
+            @can('filterData')
+                <div class="card-tools d-flex justify-content-center align-items-center">
+                    <label for="start-date" class="mr-1">Inicio</label>
+                    <input class="form-control form-control-sm mr-1" type="text" id="start-date" name="start-date">
+
+                    <label for="end-date" class="mr-1">Fin</label>
+                    <input class="form-control form-control-sm mr-1" type="text" id="end-date" name="end-date">
+                </div>
+            @endcan
         </div>
-        <!-- /.card-header -->
+
         <div class="card-body">
             <div class="table-responsive">
                 @can('exportdata')
@@ -25,14 +34,7 @@
                 @endcan
             </div>
         </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-
-        </div>
-        <!-- /.card-footer -->
     </div>
-    <!-- /.card -->
-
 @stop
 
 @section('css')
@@ -41,7 +43,6 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
     <script src="https://cdn.datatables.net/v/dt/dt-1.13.7/datatables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>

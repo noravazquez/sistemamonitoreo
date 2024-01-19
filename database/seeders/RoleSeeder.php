@@ -15,10 +15,10 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $role1 = Role::create(['name'=>'Admin']);
+        $role1 = Role::create(['name'=>'Administrador']);
         $role2 = Role::create(['name'=>'Normal']);
         $role3 = Role::create(['name'=>'Invitado']);
-        /*assignRole 1, syncRoles varios*/
+
         Permission::create(['name'=>'home'])->syncRoles([$role1, $role2, $role3]);
         Permission::create(['name'=>'grafica'])->syncRoles([$role1, $role2]);
         Permission::create(['name'=>'selectTopics'])->syncRoles([$role1, $role2]);
@@ -48,5 +48,6 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'selectUsers'])->syncRoles([$role1, $role2]);
         Permission::create(['name'=>'saveUsers'])->syncRoles([$role1, $role2]);
         Permission::create(['name'=>'deleteUsers'])->syncRoles([$role1, $role2]);
+        Permission::create(['name'=>'filterData'])->syncRoles([$role1, $role2]);
     }
 }

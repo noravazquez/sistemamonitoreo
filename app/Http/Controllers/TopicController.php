@@ -13,6 +13,7 @@ class TopicController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('auth');
         $this->middleware('can:topics.index')->only('index');
         $this->middleware('can:topics.create')->only('create');
         $this->middleware('can:topics.store')->only('store');
@@ -44,13 +45,13 @@ class TopicController extends Controller
     {
         $request->validate([
             'nombre' => 'required|max:250',
-            'nombre_corto' => 'required|max:100',
+            'nombre_corto' => 'required|max:250',
             'configuration_id' => 'required'
         ],[
             'nombre.required' => 'Por favor ingrese un nombre para el Topic.',
             'nombre.max' => 'Maximo 250 caracteres.',
             'nombre_corto.required' => 'Por favor ingrese un nombre para identificar el Topic.',
-            'nombre_corto.max' => 'Maximo 100 caracteres',
+            'nombre_corto.max' => 'Maximo 250 caracteres',
             'configuration_id.required' => 'Por favor seleccione una configuracion MQTT a la que pertenecera el Topic.'
         ]);
         $topic = new Topic();
@@ -94,13 +95,13 @@ class TopicController extends Controller
     {
         $request->validate([
             'nombre' => 'required|max:250',
-            'nombre_corto' => 'required|max:100',
+            'nombre_corto' => 'required|max:250',
             'configuration_id' => 'required'
         ],[
             'nombre.required' => 'Por favor ingrese un nombre para el Topic.',
             'nombre.max' => 'Maximo 250 caracteres.',
             'nombre_corto.required' => 'Por favor ingrese un nombre para identificar el Topic.',
-            'nombre_corto.max' => 'Maximo 100 caracteres',
+            'nombre_corto.max' => 'Maximo 250 caracteres',
             'configuration_id.required' => 'Por favor seleccione una configuracion MQTT a la que pertenecera el Topic.'
         ]);
 

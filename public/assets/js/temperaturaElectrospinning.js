@@ -6,7 +6,7 @@ var chartTemperaturaElectrospinning = new Chart(ctxTemperaturaElectrospinning, {
         labels: [],
         datasets: [{
             type: 'line',
-            label: 'Temperatura',
+            label: 'Temperatura °C',
             data: []
         }],
     },
@@ -16,7 +16,7 @@ var chartTemperaturaElectrospinning = new Chart(ctxTemperaturaElectrospinning, {
                 beginAtZero: true,
                 title: {
                     display: true,
-                    text: 'Temperatura'
+                    text: 'Temperatura °C'
                 }
             }
         }

@@ -3,7 +3,7 @@
 @section('title', 'Usuarios del topic')
 
 @section('content_header')
-    <h1>Usuarios del Topic</h1>
+    <h1>Usuarios del Topic: {{$topic->nombre_corto}}</h1>
 @stop
 
 @section('content')
@@ -72,8 +72,4 @@
         overflow-x: auto;
     }
 </style>
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop

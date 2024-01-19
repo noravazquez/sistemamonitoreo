@@ -3,7 +3,7 @@
 @section('title', 'Agrear usuario')
 
 @section('content_header')
-    <h1>Agregar usuario al topic</h1>
+    <h1>Agregar usuario al topic: {{$topic->nombre_corto}}</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
     <div class="card-header">
         <h3 class="card-title">Usuarios</h3>
     </div>
-    <!-- /.card-header -->
+
     @can('saveUsers')
         <form action="{{route('saveUsers')}}" method="POST">
             @csrf
@@ -29,7 +29,7 @@
                     <input type="hidden" class="form-control" id="topic_id" name="topic_id" value={{$topic_id}}>
                 </div>
             </div>
-            <!-- /.card-body -->
+
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>

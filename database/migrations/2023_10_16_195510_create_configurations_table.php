@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('configurations', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 100);
+            $table->string('nombre', 250);
             $table->string('url', 250);
             $table->unsignedInteger('puerto');
-            $table->string('usuario', 100);
-            $table->string('contrasena', 64);
+            $table->string('usuario', 250);
+            $table->string('contrasena', 250);
             $table->unsignedBigInteger('state_id');
             $table->foreign('state_id')->references('id')->on('states')->onUpdate('cascade');
             $table->timestamps();

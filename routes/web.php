@@ -58,3 +58,5 @@ Route::get('/selectUsers/{topic_id}', [HomeController::class, 'selectUsers'])->m
 Route::post('/saveUsers', [HomeController::class, 'saveUsers'])->middleware('can:saveUsers')->name('saveUsers');
 
 Route::delete('/deleteUsers/{topic_id}/{user_id}', [HomeController::class, 'deleteUsers'])->middleware('can:deleteUsers')->name('deleteUsers');
+
+Route::get('/datatopic/{topic_id}/{startDate}/{endDate}', [HomeController::class, 'getDataByDateRange'])->middleware('can:filterData')->name('filterData');

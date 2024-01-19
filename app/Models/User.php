@@ -51,4 +51,13 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Topic::class);
     }
+
+    public function adminlte_desc(){
+        $roles = $this->getRoleNames()->toArray();
+        if (in_array('Administrador', $roles)) {
+            return implode(', ', $roles);
+        } else {
+            return '';
+        }
+    }
 }

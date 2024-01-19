@@ -11,22 +11,22 @@
     <div class="card-header">
         <h3 class="card-title">Topic</h3>
     </div>
-    <!-- /.card-header -->
+
     @can('topics.update')
         <form action="{{route('topics.update', ['topic' => $topic->id])}}" method="POST">
             @csrf
             @method('PUT')
             <div class="card-body">
                 <div class="form-group">
-                    <label for="nombre">Nombre del Topic</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombre del Topic" value="{{$topic->nombre}}">
+                    <label for="nombre">Nombre de la variable</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombre de la variable" value="{{$topic->nombre}}">
                     @error('nombre')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="nombre">Nombre para identificar el topic</label>
-                    <input type="text" class="form-control" id="nombre_corto" name="nombre_corto" placeholder="Ingrese nombre para identificar el Topic" value="{{$topic->nombre_corto}}">
+                    <label for="nombre">Proyecto</label>
+                    <input type="text" class="form-control" id="nombre_corto" name="nombre_corto" placeholder="Ingrese nombre del proyecto" value="{{$topic->nombre_corto}}">
                     @error('nombre_corto')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
@@ -45,7 +45,7 @@
                     @enderror
                 </div>
             </div>
-            <!-- /.card-body -->
+
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
@@ -56,8 +56,4 @@
 
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop

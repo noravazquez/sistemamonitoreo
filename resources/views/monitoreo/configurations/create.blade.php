@@ -11,7 +11,7 @@
         <div class="card-header">
             <h3 class="card-title">Configuración MQTT</h3>
         </div>
-        <!-- /.card-header -->
+
         @can('configurations.store')
             <form action="{{route('configurations.store')}}" method="POST">
                 @csrf
@@ -52,19 +52,11 @@
                         @enderror
                     </div>
                 </div>
-                <!-- /.card-body -->
+
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
         @endcan
     </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop

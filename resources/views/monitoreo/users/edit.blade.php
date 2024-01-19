@@ -3,7 +3,7 @@
 @section('title', 'Rol')
 
 @section('content_header')
-    <h1>Cambiar Rol</h1>
+    <h1>Cambiar Rol: {{$user->name}}</h1>
 @stop
 
 @section('content')
@@ -30,19 +30,11 @@
                     @enderror
                 </div>
             </div>
-            <!-- /.card-body -->
+
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </form>
     @endcan
 </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop
