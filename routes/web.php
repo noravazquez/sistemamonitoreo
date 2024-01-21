@@ -3,7 +3,6 @@
 use App\Http\Controllers\ConfigurationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-//use App\Http\Controllers\MqttController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
@@ -19,12 +18,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-
-//Route::get('/login', [LoginController::class, 'login'])->name('login');
-
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->middleware('can:home')->name('home');
@@ -60,3 +53,5 @@ Route::post('/saveUsers', [HomeController::class, 'saveUsers'])->middleware('can
 Route::delete('/deleteUsers/{topic_id}/{user_id}', [HomeController::class, 'deleteUsers'])->middleware('can:deleteUsers')->name('deleteUsers');
 
 Route::get('/datatopic/{topic_id}/{startDate}/{endDate}', [HomeController::class, 'getDataByDateRange'])->middleware('can:filterData')->name('filterData');
+
+Route::get('/aboutUs', [HomeController::class, 'aboutUs'])->middleware('can:aboutUs')->name('aboutUs');

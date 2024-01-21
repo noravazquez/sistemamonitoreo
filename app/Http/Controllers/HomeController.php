@@ -174,4 +174,8 @@ class HomeController extends Controller
 
         return response()->json(['data_topic' => $data]);
     }
+
+    public function aboutUs(){
+        return view('monitoreo.aboutUs');
+    }
 }

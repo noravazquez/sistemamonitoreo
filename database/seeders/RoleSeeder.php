@@ -49,5 +49,6 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'saveUsers'])->syncRoles([$role1, $role2]);
         Permission::create(['name'=>'deleteUsers'])->syncRoles([$role1, $role2]);
         Permission::create(['name'=>'filterData'])->syncRoles([$role1, $role2]);
+        Permission::create(['name'=>'aboutUs'])->syncRoles([$role1, $role2, $role3]);
     }
 }

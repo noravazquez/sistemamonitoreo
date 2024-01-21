@@ -329,6 +329,12 @@ return [
             'route'  => 'users.index',
             'icon' => 'fas fa-users',
             'can' => 'users.index'
+        ],
+        [
+            'text' => 'About Us',
+            'url'  => '/aboutUs',
+            'icon' => 'fas fa-info-circle',
+            'can' => 'aboutUs'
         ]
     ],
 
