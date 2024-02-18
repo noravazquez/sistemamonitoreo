@@ -70,6 +70,138 @@ $(document).ready(function () {
                 {title: "Valor temperatura °C"},
                 {title: "Fecha"}
             ];
+        }else if (topic_id === 6) {
+            title = 'Temperatura entrada Hornos Ladrilleros';
+            columnas = [
+                {title: "ID temperatura entrada"},
+                {title: "Valor temperatura entrada °C"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 7) {
+            title = 'Monóxido de carbono entrada Hornos Ladrilleros';
+            columnas = [
+                {title: "ID monóxido de carbono entrada"},
+                {title: "Valor monóxido de carbono entrada"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 8) {
+            title = 'Dióxido de carbono entrada Hornos Ladrilleros';
+            columnas = [
+                {title: "ID dióxido de carbono entrada"},
+                {title: "Valor dióxido de carbono entrada"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 9) {
+            title = 'Material particulado 1 entrada Hornos Ladrilleros';
+            columnas = [
+                {title: "ID material particulado 1 entrada"},
+                {title: "Valor material particulado 1 entrada"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 10) {
+            title = 'Material particulado 2.5 entrada Hornos Ladrilleros';
+            columnas = [
+                {title: "ID material particulado 2.5 entrada"},
+                {title: "Valor material particulado 2.5 entrada"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 11) {
+            title = 'Material particulado 10 entrada Hornos Ladrilleros';
+            columnas = [
+                {title: "ID material particulado 10 entrada"},
+                {title: "Valor material particulado 10 entrada"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 12) {
+            title = 'Temperatura salida Hornos Ladrilleros';
+            columnas = [
+                {title: "ID temperatura salida"},
+                {title: "Valor temperatura salida °C"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 13) {
+            title = 'Monóxido de carbono salida Hornos Ladrilleros';
+            columnas = [
+                {title: "ID monóxido de carbono salida"},
+                {title: "Valor monóxido de carbono salida"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 14) {
+            title = 'Dióxido de carbono salida Hornos Ladrilleros';
+            columnas = [
+                {title: "ID dióxido de carbono salida"},
+                {title: "Valor dióxido de carbono salida"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 15) {
+            title = 'Material particulado 1 salida Hornos Ladrilleros';
+            columnas = [
+                {title: "ID material particulado 1 salida"},
+                {title: "Valor material particulado 1 salida"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 16) {
+            title = 'Material particulado 2.5 salida Hornos Ladrilleros';
+            columnas = [
+                {title: "ID material particulado 2.5 salida"},
+                {title: "Valor material particulado 2.5 salida"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 17) {
+            title = 'Material particulado 10 salida Hornos Ladrilleros';
+            columnas = [
+                {title: "ID material particulado 10 salida"},
+                {title: "Valor material particulado 10 salida"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 18) {
+            title = 'Temperatura Hornos Ladrilleros';
+            columnas = [
+                {title: "ID temperatura"},
+                {title: "Valor temperatura entrada °C"},
+                {title: "Valor temperatura salida °C"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 19) {
+            title = 'Monóxido de carbono Hornos Ladrilleros';
+            columnas = [
+                {title: "ID monóxido de carbono"},
+                {title: "Valor monóxido de carbono entrada"},
+                {title: "Valor monóxido de carbono salida"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 20) {
+            title = 'Dióxido de carbono Hornos Ladrilleros';
+            columnas = [
+                {title: "ID dióxido de carbono"},
+                {title: "Valor dióxido de carbono entrada"},
+                {title: "Valor dióxido de carbono salida"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 21) {
+            title = 'Material particulado 1 Hornos Ladrilleros';
+            columnas = [
+                {title: "ID material particulado 1"},
+                {title: "Valor material particulado 1 entrada"},
+                {title: "Valor material particulado 1 salida"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 22) {
+            title = 'Material particulado 2.5 Hornos Ladrilleros';
+            columnas = [
+                {title: "ID material particulado 2.5"},
+                {title: "Valor material particulado 2.5 entrada"},
+                {title: "Valor material particulado 2.5 salida"},
+                {title: "Fecha"}
+            ];
+        }else if (topic_id === 23) {
+            title = 'Material particulado 10 Hornos Ladrilleros';
+            columnas = [
+                {title: "ID material particulado 10"},
+                {title: "Valor material particulado 10 entrada"},
+                {title: "Valor material particulado 10 salida"},
+                {title: "Fecha"}
+            ];
         }
 
         return $('#example').DataTable({
@@ -154,6 +286,180 @@ $(document).ready(function () {
                 return [
                     item.id,
                     String(jsonData + ' °C'),
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 6) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    String(jsonData + ' °C'),
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 7) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 8) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 9) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 10) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 11) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 12) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    String(jsonData + ' °C'),
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 13) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 14) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 15) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 16) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 17) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                return [
+                    item.id,
+                    jsonData,
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 18) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                console.log(jsonData);
+                return [
+                    item.id,
+                    String(jsonData[1] + ' °C'),
+                    String(jsonData[2] + ' °C'),
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 19) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                console.log(jsonData);
+                return [
+                    item.id,
+                    jsonData[1],
+                    jsonData[2],
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 20) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                console.log(jsonData);
+                return [
+                    item.id,
+                    jsonData[1],
+                    jsonData[2],
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 21) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                console.log(jsonData);
+                return [
+                    item.id,
+                    jsonData[1],
+                    jsonData[2],
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 22) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                console.log(jsonData);
+                return [
+                    item.id,
+                    jsonData[1],
+                    jsonData[2],
+                    item.created_at
+                ];
+            });
+        }else if (topic_id === 23) {
+            return dataTopic.map(function (item) {
+                var jsonData = JSON.parse(item.data);
+                console.log(jsonData);
+                return [
+                    item.id,
+                    jsonData[1],
+                    jsonData[2],
                     item.created_at
                 ];
             });
